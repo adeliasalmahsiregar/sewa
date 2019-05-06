@@ -40,20 +40,6 @@
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="labelTanggal" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jComboBoxTanggal" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="ComboBoxBulan" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="ComboBoxTahun" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="labelKode" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                              <Component id="ComboBoxKode" pref="313" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
                               <Component id="labelNope" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                               <Component id="FieldNope" pref="313" max="32767" attributes="0"/>
@@ -76,6 +62,24 @@
                               <Component id="labelNamaTeam" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
                               <Component id="FieldNamaTeam" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labelTanggal" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelKode" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="jComboBoxTanggal" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="ComboBoxBulan" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="ComboBoxTahun" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="ComboBoxKode" alignment="0" pref="257" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -201,7 +205,7 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="1">
-            <StringItem index="0" value=""/>
+            <StringItem index="0" value=" "/>
           </StringArray>
         </Property>
       </Properties>

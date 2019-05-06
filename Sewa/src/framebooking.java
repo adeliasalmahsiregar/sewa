@@ -71,7 +71,7 @@ public class framebooking extends javax.swing.JFrame {
         labelNope.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         labelNope.setText("No Handphone");
 
-        ComboBoxKode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+        ComboBoxKode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
         jComboBoxTanggal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tanggal" }));
         jComboBoxTanggal.addActionListener(new java.awt.event.ActionListener() {
@@ -165,18 +165,6 @@ public class framebooking extends javax.swing.JFrame {
                         .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelTanggal)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBoxTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(ComboBoxBulan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(ComboBoxTahun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelKode)
-                                .addGap(96, 96, 96)
-                                .addComponent(ComboBoxKode, 0, 313, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelNope)
                                 .addGap(90, 90, 90)
                                 .addComponent(FieldNope, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE))
@@ -195,7 +183,21 @@ public class framebooking extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelNamaTeam)
                                 .addGap(112, 112, 112)
-                                .addComponent(FieldNamaTeam)))))
+                                .addComponent(FieldNamaTeam))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelTanggal)
+                                    .addComponent(labelKode))
+                                .addGap(116, 116, 116)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jComboBoxTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ComboBoxBulan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ComboBoxTahun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(ComboBoxKode, 0, 257, Short.MAX_VALUE))))))
                 .addGap(42, 42, 42))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
