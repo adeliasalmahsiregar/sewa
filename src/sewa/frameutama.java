@@ -1,25 +1,21 @@
 package Sewa;
 
 
-import bokingfutsal.pilihan;
 import static com.sun.webkit.perf.WCFontPerfLogger.reset;
 import java.awt.Desktop;
 import java.awt.HeadlessException;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import static javafx.scene.input.DataFormat.URL;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import static sun.security.jgss.GSSUtil.login;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -55,7 +51,7 @@ public final class frameutama extends javax.swing.JFrame {
     }
     
      public void judul(){
-    Object[] judul = {"Kd_Booking", "Tgl_Booking", "Kasir","Team","Manager","Status","Harga_Sewa","DP","Tgl_Sewa","Lama","Masuk","Keluar", "Total","sisa","Keterangan"};
+    Object[] judul = {"Kd_Booking", "Tgl_Booking","Team","Manager","Status","Harga_Sewa","DP","Tgl_Sewa","Lama","Masuk","Keluar", "Total","sisa","Keterangan"};
     tabmodel = new DefaultTableModel(null, judul);
     tbldata.setModel(tabmodel);
     
@@ -73,7 +69,6 @@ public final class frameutama extends javax.swing.JFrame {
             Object[] data = {
             rs.getString("kode_booking"),
             rs.getString("tgl_booking"),
-            rs.getString("nama_kasir"),
             rs.getString("nama_team"),
             rs.getString("manager"),
             rs.getString("status"),
@@ -163,7 +158,6 @@ public final class frameutama extends javax.swing.JFrame {
         bsimpan = new javax.swing.JButton();
         bdelete = new javax.swing.JButton();
         bupdate = new javax.swing.JButton();
-        breset = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbldata = new javax.swing.JTable();
@@ -321,15 +315,15 @@ public final class frameutama extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tgl_bkng, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelTanggal))
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nm_tm, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelNamaTeam))
-                .addGap(19, 19, 19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mngr, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelNope))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(16, 16, 16)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(member)
                     .addComponent(nonmember))
@@ -466,13 +460,6 @@ public final class frameutama extends javax.swing.JFrame {
             }
         });
 
-        breset.setText("RESET");
-        breset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bresetActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -486,17 +473,12 @@ public final class frameutama extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sisa, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 393, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(bdelete, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(breset, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(bsimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(bupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19))
+                    .addComponent(bsimpan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bupdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bdelete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -510,15 +492,15 @@ public final class frameutama extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(sisa, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bdelete, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(breset, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bsimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(57, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(bsimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bdelete, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -748,7 +730,7 @@ public final class frameutama extends javax.swing.JFrame {
             try{
                 cn = DriverManager.getConnection("jdbc:mysql://localhost/booking_lapangan?" + "user=root&password=");
                 st = cn.createStatement();
-                st.executeUpdate("insert into tbl_menu values('" + kd_bkng.getText()+ "','" + tgl_bkng.getText() + "', '" + "','" + nm_tm.getText() + "', '" + mngr.getText() + "', '" + memberr + "','" + hrg_sewa.getText()+ "','" + dp.getText()+ "','" + tgl_sewa.getText() + "','" + lama_main.getSelectedItem() + "','" + jam_msk.getSelectedItem() + "','" + jam_klr.getText() + "','" + total.getText() + "','"  + sisa.getText() + "','" + ket + "')");
+                st.executeUpdate("insert into tbl_menu values('" + kd_bkng.getText()+ "','" + tgl_bkng.getText() +  "','" + nm_tm.getText() + "', '" + mngr.getText() + "', '" + memberr + "','" + hrg_sewa.getText()+ "','" + dp.getText()+ "','" + tgl_sewa.getText() + "','" + lama_main.getSelectedItem() + "','" + jam_msk.getSelectedItem() + "','" + jam_klr.getText() + "','" + total.getText() + "','"  + sisa.getText() + "','" + ket + "')");
                 tampildata();
                 reset();
                 JOptionPane.showMessageDialog(null, "Berhasil disimpan!!");
@@ -765,7 +747,7 @@ public final class frameutama extends javax.swing.JFrame {
             int jawab;
             if((jawab = JOptionPane.showConfirmDialog(null, "ingin menghapus ?", "konfirmasi", JOptionPane.YES_NO_OPTION)) == 0){
                 st = cn.createStatement();
-                st.executeUpdate("delete from tbl_menu where " + "kd_booking='" + tabmodel.getValueAt(tbldata.getSelectedRow(), 0) + "'");
+                st.executeUpdate("delete from tbl_menu where " + "kode_booking='" + tabmodel.getValueAt(tbldata.getSelectedRow(), 0) + "'");
                 tampildata();
                 reset();
 
@@ -799,7 +781,7 @@ public final class frameutama extends javax.swing.JFrame {
         try{
             cn = DriverManager.getConnection("jdbc:mysql://localhost/booking_lapangan?" + "user=root&password=");
             st = cn.createStatement();
-            st.executeUpdate("update tbl_menu set tgl_booking = '" + tgl_bkng.getText() +  "', nama_team='" + nm_tm.getText() + "',manager='" + mngr.getText() + "',status='" + memberr + "', harga_sewa='" + hrg_sewa.getText() + "',dp='" + dp.getText() + "',tgl_sewa='" + tgl_sewa.getText() + "',lama_bermain='" + lama_main.getSelectedItem() + "',jam_masuk='" + jam_msk.getSelectedItem() + "',jam_keluar='" + jam_klr.getText() + "',total_bayar='" + total.getText() + "',sisa='" + sisa.getText() + "',keterangan='" + ket + "' where kd_booking='" + kd_bkng.getText() + "'");
+            st.executeUpdate("update tbl_menu set tgl_booking = '" + tgl_bkng.getText() +  "', nama_team='" + nm_tm.getText() + "',manager='" + mngr.getText() + "',status='" + memberr + "', harga_sewa='" + hrg_sewa.getText() + "',dp='" + dp.getText() + "',tgl_sewa='" + tgl_sewa.getText() + "',lama_main='" + lama_main.getSelectedItem() + "',jam_masuk='" + jam_msk.getSelectedItem() + "',jam_keluar='" + jam_klr.getText() + "',total_bayar='" + total.getText() + "',sisa='" + sisa.getText() + "',keterangan='" + ket + "' where kode_booking='" + kd_bkng.getText() + "'");
             JOptionPane.showMessageDialog(null, "Data Berhasil  Diupdate!");
             tampildata();
             reset();
@@ -808,16 +790,6 @@ public final class frameutama extends javax.swing.JFrame {
              Logger.getLogger(frameutama.class.getName()).log(Level.SEVERE, null, ex);
          }
     }//GEN-LAST:event_bupdateActionPerformed
-
-    private void bresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bresetActionPerformed
-        // TODO add your handling code here:
-        if(kd_bkng.getText().equals("") && tgl_bkng.getText().equals("")  && nm_tm.getText().equals("") && mngr.getText().equals("") && nm_tm.getText().equals("") && member.getText().equals("") && hrg_sewa.getText().equals("") && dp.getText().equals("") &&
-            tgl_sewa.getText().equals("") && lama_main.getSelectedItem().equals("") && jam_msk.getSelectedItem().equals("") && jam_klr.getText().equals("") && total.getText().equals("") && sisa.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Data Sudah Kosong!!");
-        } else{
-            reset();
-        }
-    }//GEN-LAST:event_bresetActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -926,7 +898,6 @@ public final class frameutama extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bdelete;
-    private javax.swing.JButton breset;
     private javax.swing.JButton bsimpan;
     private javax.swing.JButton bupdate;
     private javax.swing.JTextField dp;
@@ -972,49 +943,5 @@ public final class frameutama extends javax.swing.JFrame {
     private javax.swing.JTextField total;
     // End of variables declaration//GEN-END:variables
 
-    private static class cn {
-
-        public cn() {
-        }
-    }
-
-    private static class login {
-
-        public login() {
-        }
-
-        private void setVisible(boolean b) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-    }
-
-    private static class st {
-
-        private static void executeUpdate(String string) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        public st() {
-        }
-    }
-
-    private static class tabmodel {
-
-        public tabmodel() {
-        }
-    }
-
-    private static class tbldata {
-
-        private static int getSelectedRow() {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        private static void setModel(DefaultTableModel tabmodel) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        public tbldata() {
-        }
-    }
+    
 }

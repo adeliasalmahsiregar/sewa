@@ -17,17 +17,19 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 public class framepembatalan extends javax.swing.JFrame {
     Statement st;
     ResultSet rs;
     DefaultTableModel tabmodel;
     
-    Connection cnn = koneksi.koneksi.getKoneksi();
+    Connection cn = koneksi.koneksi.getKoneksi();
     /**
      * Creates new form framepembatalan
      */
@@ -69,8 +71,6 @@ public class framepembatalan extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        kd_bkng.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("Glacial Indifference", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,8 +145,9 @@ public class framepembatalan extends javax.swing.JFrame {
             try{
                 int jawab;
                 if((jawab = JOptionPane.showConfirmDialog(null, "Yakin ingin membatalkan?", "konfirmasi", JOptionPane.YES_NO_OPTION)) == 0){
-             st = cnn.createStatement();
-             st.executeUpdate("delete from tbl_menu where kd_booking='" + kd_bkng.getText() +"'"); 
+             cn = DriverManager.getConnection("jdbc:mysql://localhost/booking_lapangan?" + "user=root&password="); 
+             st = cn.createStatement();
+             st.executeUpdate("delete from tbl_menu where kode_booking='" + kd_bkng.getText() +"'"); 
                 JOptionPane.showMessageDialog(null, "Pembatalan Berhasil");
                 }
             }

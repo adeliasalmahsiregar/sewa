@@ -11,12 +11,13 @@ package Sewa;
  * @author ASUS
  */
 import Sewa.frameutama;
-import bokingfutsal.pilihan;
+import Sewa.framepilihan;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -31,7 +32,7 @@ public class framepelunasan extends javax.swing.JFrame {
     ResultSet rs;
     DefaultTableModel tabmodel;
     
-    Connection cnn = koneksi.koneksi.getKoneksi();
+    Connection cn = koneksi.koneksi.getKoneksi();
     /**
      * Creates new form framepelunasan
      */
@@ -204,37 +205,17 @@ public class framepelunasan extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Kode Booking tidak boleh kosong");
         }else{
             try{
-                st = cnn.createStatement();
-                rs = st.executeQuery("select * from tb_menu where kd_booking='" + kd_bkng.getText() +"'");
+                cn= DriverManager.getConnection("jdbc:mysql://localhost/booking_lapangan?" + "user=root&password="); 
+                st = cn.createStatement();
+                rs = st.executeQuery("select * from tbl_menu where kode_booking='" + kd_bkng.getText() +"'");
                 while (rs.next()){
-                    if(kd_bkng.getText().equals(rs.getString("kd_booking"))) {
+                    if(kd_bkng.getText().equals(rs.getString("kode_booking"))) {
                         sisa.setText(rs.getString("sisa"));
                     }
                 }
             } catch(SQLException a) {
             }
         }
-    }                                        
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        long kembalian;
-
-        if(bayarr.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Masukkan Jumlah Pembayaran");
-        } else {
-            if(Long.parseLong(sisa.getText()) <= Long.parseLong((String) bayarr.getText())) {
-                kembalian =  Long.parseLong((String) bayarr.getText()) - Long.parseLong(sisa.getText());
-                JOptionPane.showMessageDialog(null, "Terima kasih telah berkunjung. Kembaliannya " + kembalian);
-                try {
-                    st = cnn.createStatement();
-                    st.executeUpdate("update tb_menu set sisa = '0', keterangan = 'Lunassssss oy!!' where kd_booking='" + kd_bkng.getText() + "'");
-                } catch(SQLException a) {
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "Uangnya kurang !!!");
-            }
-        }
-        reset();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -254,6 +235,23 @@ public class framepelunasan extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        long kembalian;
+        if(bayarr.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Masukkan Jumlah Pembayaran");
+        } else {
+            if(Long.parseLong(sisa.getText()) <= Long.parseLong(bayarr.getText())) {
+                kembalian =  Long.parseLong(bayarr.getText()) - Long.parseLong(sisa.getText());
+                JOptionPane.showMessageDialog(null, "Terima kasih telah berkunjung. Kembaliannya " + kembalian);
+                try {
+                    st = cn.createStatement();
+                    st.executeUpdate("update tbl_menu set sisa = '0', keterangan = 'Lunassssss oy!!' where kd_booking='" + kd_bkng.getText() + "'");
+                } catch(SQLException a) {
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Uangnya kurang !!!");
+            }
+        }
+        reset();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void bayarrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bayarrActionPerformed

@@ -10,7 +10,7 @@ package Sewa;
  *
  * @author ASUS
  */
-import bokingfutsal.pilihan;
+import Sewa.framepilihan;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -47,13 +47,13 @@ public class laporan extends javax.swing.JFrame {
         rs = st.executeQuery("select * from tbl_menu");
         while (rs.next()){
             Object[] data = {
-            rs.getString("kd_booking"),
+            rs.getString("kode_booking"),
             rs.getString("tgl_booking"),
             rs.getString("nama_team"),
             rs.getString("status"),
             rs.getString("dp"),
             rs.getString("tgl_sewa"),
-            rs.getString("lama_bermain"),
+            rs.getString("lama_main"),
             rs.getString("jam_masuk"),
             rs.getString("jam_keluar"),
             rs.getString("total_bayar"),
@@ -102,7 +102,7 @@ public class laporan extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tbldata2);
 
-        jLabel1.setFont(new java.awt.Font("geektastic", 1, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Bebas Neue", 1, 60)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("LAPORAN BOOKING");
 
@@ -127,19 +127,19 @@ public class laporan extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(280, 280, 280)
-                .addComponent(jLabel1)
-                .addContainerGap(341, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1077, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton4)
                         .addGap(18, 18, 18)
                         .addComponent(jButton5)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(390, 390, 390)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
